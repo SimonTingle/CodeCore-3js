@@ -1,0 +1,107 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; height: 100vh; overflow: hidden; background: #1e1e1e; color: #fff; }
+
+.app { height: 100vh; display: flex; flex-direction: column; }
+
+.toolbar {
+    background: #252526;
+    padding: 8px 16px;
+    border-bottom: 1px solid #3e3e42;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.btn.primary { background: #0e639c; color: white; }
+.btn.primary:hover { background: #1177bb; }
+.btn.secondary { background: #3c3c3c; color: #ccc; }
+.btn.secondary:hover { background: #525252; }
+.btn.small { padding: 4px 8px; font-size: 12px; }
+
+#framework { padding: 6px 8px; background: #3c3c3c; color: #ccc; border: 1px solid #555; border-radius: 4px; }
+
+.status {
+    margin-left: auto;
+    padding: 4px 8px;
+    background: #0e639c;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+.split-container {
+    flex: 1;
+    display: flex;
+    position: relative;
+    height: 100%;
+}
+
+.left-pane, .right-pane {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.editor-pane { background: #1e1e1e; }
+.preview-pane { background: #000; }
+
+.editor-header, .preview-header {
+    background: #252526;
+    padding: 8px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    border-bottom: 1px solid #3e3e42;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#codeEditor {
+    width: 100%;
+    height: calc(100% - 32px);
+    background: #1e1e1e;
+    color: #d4d4d4;
+    border: none;
+    padding: 16px;
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    resize: none;
+    outline: none;
+}
+
+#codeEditor::placeholder { color: #6a6a6a; }
+
+.divider {
+    width: 4px;
+    background: #3e3e42;
+    cursor: col-resize;
+    position: absolute;
+    left: 50%;
+    top: 40px;
+    bottom: 0;
+    z-index: 1000;
+}
+
+#previewFrame {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: #000;
+}
+
+.fullscreen { position: fixed !important; top: 0 !important; left: 0 !important; width: 100vw !important; height: 100vh !important; z-index: 9999; }
+
+@media (max-width: 768px) {
+    .toolbar { flex-direction: column; align-items: stretch; gap: 4px; }
+    .btn { flex: 1; }
+}

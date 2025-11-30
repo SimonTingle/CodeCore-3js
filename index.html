@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeCore Sandbox - Three.js & More</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app">
+        <div class="toolbar">
+            <button id="runBtn" class="btn primary">▶ Run Code</button>
+            <button id="clearBtn" class="btn secondary">Clear</button>
+            <button id="saveBtn" class="btn secondary">💾 Save</button>
+            <button id="loadBtn" class="btn secondary">📂 Load</button>
+            <select id="framework">
+                <option value="auto">Auto-detect</option>
+                <option value="threejs">Three.js</option>
+                <option value="vanilla">Vanilla JS</option>
+            </select>
+            <span id="status" class="status">Ready</span>
+        </div>
+        
+        <div class="split-container">
+            <div class="left-pane editor-pane">
+                <div class="editor-header">Editor</div>
+                <textarea id="codeEditor" placeholder="Paste your Three.js code here...">// Example Three.js code:
+// Basic rotating cube
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer();
+renderer.setSize(window.innerWidth / 2, window.innerHeight);
+document.body.appendChild(renderer.domElement);
+
+const geometry = new THREE.BoxGeometry();
+const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+const cube = new THREE.Mesh(geometry, material);
+scene.add(cube);
+
+camera.position.z = 5;
+
+function animate() {
+    requestAnimationFrame(animate);
+    cube.rotation.x += 0.01;
+    cube.rotation.y += 0.01;
+    renderer.render(scene, camera);
+}
+animate();
+</textarea>
+            </div>
+            
+            <div class="divider" id="divider"></div>
+            
+            <div class="right-pane preview-pane">
+                <div class="preview-header">
+                    <span>Preview</span>
+                    <button id="toggleFull" class="btn small">⛶</button>
+                </div>
+                <iframe id="previewFrame" sandbox="allow-scripts allow-same-origin"></iframe>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

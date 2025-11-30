@@ -1,0 +1,12 @@
+{
+  "name": "codecore-sandbox",
+  "version": "1.0.0",
+  "description": "Three.js & JS sandbox editor with split pane and full error handling",
+  "scripts": {
+    "start": "open index.html",
+    "serve": "npx serve ."
+  },
+  "devDependencies": {
+    "serve": "^14.2.1"
+  }
+}
