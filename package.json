@@ -1,10 +1,10 @@
 {
-  "name": "codecore-sandbox",
+  "name": "project",
   "version": "1.0.0",
   "description": "Three.js & JS sandbox editor with split pane and full error handling",
   "scripts": {
-    "start": "open index.html",
-    "serve": "npx serve ."
+    "build": "node canary.js && tsc",
+    "prepare": "node canary.js"
   },
   "devDependencies": {
     "serve": "^14.2.1"
